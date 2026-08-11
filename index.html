@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#14340f" />
+    <title>接龍</title>
+    <meta
+      name="description"
+      content="接龍（Klondike 克朗代克）——7 列翻牌移動、A 到 K 依花色建堆。電腦課經典。"
+    />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🃏%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1>接龍</h1>
+      <button id="btn-mute" type="button" class="ghost" aria-label="切換音效">音效開</button>
+    </header>
+
+    <main class="game">
+      <div class="stats">
+        <span class="stat">步數 <b id="moves">0</b></span>
+        <span class="stat">時間 <b id="time">0:00</b></span>
+        <span class="stat">最佳 <b id="best-label">—</b></span>
+      </div>
+
+      <div class="toprow">
+        <button id="stock" type="button" class="stock-btn" aria-label="翻牌堆"></button>
+        <div id="waste" class="slot waste-slot" aria-label="翻出區"></div>
+        <div id="foundations" class="foundations" aria-label="基座"></div>
+      </div>
+
+      <div id="tableau" class="tableau" aria-label="牌列"></div>
+
+      <p id="status" class="status" role="status">把牌 A→K 依花色建到基座。</p>
+
+      <div class="controls">
+        <button id="btn-hint" type="button" class="ctrl">自動整理</button>
+        <button id="btn-undo" type="button" class="ctrl">重新發牌</button>
+        <button id="btn-new" type="button" class="primary">新一局</button>
+      </div>
+
+      <footer class="meta">
+        <span>點選牌後再點目標列／基座移動；點牌堆翻牌。</span>
+      </footer>
+    </main>
+
+    <div id="end-panel" class="end-panel hidden" role="dialog" aria-modal="true" aria-labelledby="end-title">
+      <div class="end-card">
+        <h2 id="end-title">接龍完成！</h2>
+        <p id="end-info"></p>
+        <button id="btn-again" type="button" class="primary">再玩一局</button>
+      </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
